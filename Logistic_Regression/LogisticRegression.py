@@ -14,7 +14,7 @@ import pandas as pd
 #importing the dataset
 dataset = pd.read_csv('Social_Network_Ads.csv')
 X = dataset.iloc[:,2:4].values
-y = dataset.iloc[:,4:5].values
+Y = dataset.iloc[:,4:5].values
 
 #splitting the data into training and test set
 from sklearn.cross_validation import train_test_split
@@ -28,3 +28,12 @@ X_test  = sc_X.transform(X_test)
 
 #Fitting logistic regression to the training set
 from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state = 0)
+classifier.fit(X_train,Y_train)
+
+#predicting the Test Results
+Y_pred = classifier.predict(X_test)
+
+#Making the confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(Y_test,Y_pred)
