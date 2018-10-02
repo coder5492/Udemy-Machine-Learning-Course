@@ -45,6 +45,5 @@ import statsmodels.formula.api as sm
 #appending a column of 1's at the beginning
 X = np.append(arr = np.ones((50,1)).astype(int), values = X, axis = 1 )
 Xopt = X[:,[0,3]]
-est = sm.OLS(Y, Xopt)
-est2 = est.fit()
-print(est2.summary())
+regressor_OLS = sm.OLS(Y, Xopt).fit()
+print(regressor_OLS.summary())
