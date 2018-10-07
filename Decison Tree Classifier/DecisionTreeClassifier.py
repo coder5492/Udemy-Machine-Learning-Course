@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Oct  4 18:17:29 2018
-
-@author: sangeeth
-"""
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct  2 21:43:18 2018
+Created on Thu Oct  4 18:47:05 2018
 
 @author: sangeeth
 """
@@ -35,8 +27,8 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Fitting classifier to the Training set
-from sklearn.naive_bayes import GaussianNB
-classifier =  GaussianNB()
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion = 'entropy',random_state = 0)
 classifier.fit(X_train,Y_train)
 
 # Predicting the Test set results
